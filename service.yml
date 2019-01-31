@@ -3,8 +3,10 @@ kind: Service
 metadata:
   name: my-service
 spec:
-  selector:
-    app: nginx
+  replicas: 3
+  selectors:
+    matchLabels:
+      app: nginx
   ports:
     - name: http
       protocol: TCP
