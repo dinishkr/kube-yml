@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-car
+data:
+  car.make: ford
+  car.model: ecosport
+  car.color: red
+
+  selector:
+    matchlabels:
+      app: nginx
+    matchExpressions:
+      - {key:version, operator: in, value: [1,2]}
