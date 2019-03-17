@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox1
+spec:
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: kub
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: in
+                values: ['nginx']
+  containers:
+    - name: busybox
+      image: nginx
